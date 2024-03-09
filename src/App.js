@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from './images/logo.png';
 import './App.css';
 import Nav from './components/Navbar/Nav';
 import Carruzel from './components/Carruzel/Carruzel';
