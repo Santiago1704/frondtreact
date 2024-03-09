@@ -1,0 +1,35 @@
+.about_section {
+    background-image: url(../../images/about-bg.png);
+    background-size: cover;
+  }
+
+  .custom_heading span {
+    color: #21d7ff;
+  }
+  
+  .about_section .row {
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+  }
+  
+  .about_section .img-box img {
+    width: 100%;
+  }
+  
+  .about_section .detail-box p {
+    margin: 25px 0;
+  }
+  
+  .about_section .detail-box a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #023b48;
+    border: 1px solid #023b48;
+    color: #ffffff;
+  }
+  
+  .about_section .detail-box a:hover {
+    background-color: transparent;
+    color: #023b48;
+  }

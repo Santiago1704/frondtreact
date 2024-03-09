@@ -1,0 +1,37 @@
+.client_section .pl-100 {
+    padding-left: 100px;
+  }
+  
+  .client_section .client_container {
+    width: 90%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 auto;
+    border: 1px solid #606060;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 30px 0;
+  }
+  
+  .client_section .client_container .img_box {
+    width: 200px;
+    margin-left: -100px;
+  }
+  
+  .client_section .client_container .img_box img {
+    min-width: 100%;
+  }
+  
+  .client_section .client_container .detail_box {
+    padding: 0 35px;
+  }
+  
+  .client_section .carousel-indicators li {
+    background-color: #0dc3ff;
+  }
+  
+  .client_section .carousel-indicators .active {
+    background-color: #8c8a8a;
+  }
