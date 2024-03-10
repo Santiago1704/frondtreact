@@ -2,17 +2,20 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './Carruzel.css';
+import { Image } from "react-bootstrap";
+import imagen from '../../images/paseo.jpg';
+import '../../responsive.css';
 
 export default function Carruzel() {
     return (
         <section className="slider_section position-relative">
             <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
-                <ol className="carousel-indicators">
+                {/* <ol className="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                </ol>
+                </ol> */}
                 <div className="carousel-inner">
                     <div className="carousel-item active">
                         <div className="container-fluid">
@@ -41,7 +44,8 @@ export default function Carruzel() {
                                 </div>
                                 <div className="col-md-6">
                                     <div className="slider_img-box">
-                                        <a href="" className="imagen" ></a>
+                                        <Image src={imagen} roundedCircle />
+                                        {/* <a href="" className="imagen" ></a> */}
                                     </div>
                                 </div>
                             </div>

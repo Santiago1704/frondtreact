@@ -2,7 +2,11 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './Services.css';
-
+import '../../responsive.css';
+import imagen1 from '../../images/s-1.png';
+import imagen2 from '../../images/s-2.png';
+import imagen3 from '../../images/s-3.png';
+import imagen4 from '../../images/494b49727a62b580024be500be9caf60-fotor-bg-remover-20231030153818.png';
 export default function Service() {
     return (
         <section className="service_section layout_padding">
@@ -18,7 +22,7 @@ export default function Service() {
                             <div className="row">
                                 <div className="col-md-4">
                                     <div className="img_box">
-                                        <img src="images/110882338-voluntarios-ayudan-a-pasear-perros-animales-ilustración-vectorial-fotor-bg-remover-20231030155244.png" alt="" />
+                                        <img src={imagen1} alt="" />
                                     </div>
                                     <div className="detail_box">
                                         <h6>
@@ -32,7 +36,7 @@ export default function Service() {
                                 </div>
                                 <div className="col-md-4">
                                     <div className="img_box">
-                                        <img src="images/s-2.png" alt="" />
+                                        <img src={imagen2} alt="" />
                                     </div>
                                     <div className="detail_box">
                                         <h6>
@@ -46,7 +50,7 @@ export default function Service() {
                                 </div>
                                 <div className="col-md-4">
                                     <div className="img_box">
-                                        <img src="images/s-3.png" alt="" />
+                                        <img src={imagen3} alt="" />
                                     </div>
                                     <div className="detail_box">
                                         <h6>
@@ -62,7 +66,7 @@ export default function Service() {
                         </div>
                     </div>
                     <div className="col-md-4">
-                        <img src="images/494b49727a62b580024be500be9caf60-fotor-bg-remover-20231030153818.png" alt="" className="w-100" />
+                        <img src={imagen4} alt="" className="w-100" />
                     </div>
                 </div>
             </div>

@@ -1,0 +1,43 @@
+.map_section {
+    position: relative;
+    background-image: url(../../images/about-bg.png);
+  }
+
+  .map_section .form_container {
+    width: 50%;
+  }
+  
+  .map_section .form_container form {
+    background-color: transparent;
+    padding: 45px;
+    margin: 75px 0;
+  }
+  
+  .map_section .form_container input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 1px solid #111111;
+    padding-top: 35px;
+    width: 100%;
+  }
+  
+  .map_section .form_container input.message-box {
+    padding-top: 55px;
+  }
+  
+  .map_section .form_container button {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #023b48;
+    border: 1px solid #023b48;
+    color: #ffffff;
+    border-radius: 30px;
+    width: 100%;
+    margin-top: 35px;
+  }
+  
+  .map_section .form_container button:hover {
+    background-color: transparent;
+    color: #023b48;
+  }

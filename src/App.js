@@ -1,4 +1,3 @@
-import logo from './images/logo.png';
 import './App.css';
 import Nav from './components/Navbar/Nav';
 import Carruzel from './components/Carruzel/Carruzel';
@@ -8,6 +7,7 @@ import Service from './components/Services/Services';
 import Galery from './components/Galery/Galery';
 import Client from './components/Client/Client';
 import Info from './components/Info/Info';
+import Form from './components/Form/Form';
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
         <Galery/>
         <br/>
         <Client/>
+        <Form/>
         <Info/>
         <Footer/>
 

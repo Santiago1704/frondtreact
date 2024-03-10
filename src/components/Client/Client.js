@@ -2,6 +2,8 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './Client.css';
+import imagen from '../../images/client.jpg';
+import '../../responsive.css';
 
 export default function Client() {
     return(
@@ -16,17 +18,17 @@ export default function Client() {
                 </h2>
             </a>
             <div id="carouselExample2Indicators" className="carousel slide" data-ride="carousel">
-                <ol className="carousel-indicators">
+                {/* <ol className="carousel-indicators">
                     <li data-target="#carouselExample2Indicators" data-slide-to="0" className="active"></li>
                     <li data-target="#carouselExample2Indicators" data-slide-to="1"></li>
                     <li data-target="#carouselExample2Indicators" data-slide-to="2"></li>
-                </ol>
+                </ol> */}
                 <div className="carousel-inner">
                     <div className="carousel-item active">
                         <div className="layout_padding2 pl-100">
                             <div className="client_container">
                                 <div className="img_box">
-                                    <img src="images/client.jpg" alt="" />
+                                    <img src={imagen} alt="" />
                                 </div>
                                 <div className="detail_box">
                                     <h5>Sandy Mark</h5>

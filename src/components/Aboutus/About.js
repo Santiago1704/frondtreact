@@ -2,6 +2,8 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './About.css';
+import '../../responsive.css';
+import imagen from '../../images/paseopng-fotor-bg-remover-20231030153644.png';
 export default function About() {
     return( 
         <section className="about_section layout_padding">
@@ -9,10 +11,10 @@ export default function About() {
             <div className="row">
                 <div className="col-md-6">
                     <div className="img-box">
-                        <img src="images/paseopng-fotor-bg-remover-20231030153644.png" className="img-fluid" alt="Responsive image" />
+                        <img src={imagen} className="img-fluid" alt="Responsive image" />
                     </div>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 my-1">
                     <div className="detail-box">
                         <h2 className="custom_heading">
                             Acerca de {''}
