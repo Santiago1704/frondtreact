@@ -40,7 +40,7 @@ export default function Nav() {
                         </div>
 
                         <div className="d-flex justify-content-center">
-                            <a href="/html/login.html">Inicio de sesion</a>
+                            <a href= "">Inicio de sesion</a>
                         </div>
                     </div>
                 </nav>
