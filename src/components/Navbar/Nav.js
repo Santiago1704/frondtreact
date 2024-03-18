@@ -2,6 +2,7 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './Nav.css';
+import { Link } from 'react-router-dom';
 export default function Nav() {
     return (
         <div>
@@ -19,7 +20,7 @@ export default function Nav() {
                         <div className="d-flex mx-auto flex-column flex-lg-row align-items-center">
                             <ul className="navbar-nav">
                                 <li className="nav-item active">
-                                    <a className="nav-link" href="/">Inicio <span className="sr-only"></span></a>
+                                     <a className="nav-link" href="/">Inicio <span className="sr-only"></span></a> 
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#servicios">Servicios</a>
@@ -38,9 +39,8 @@ export default function Nav() {
                                 <button className="btn my-2 my-sm-0 nav_search-btn" type="submit"></button>
                             </form>
                         </div>
-
                         <div className="d-flex justify-content-center">
-                            <a href= "">Inicio de sesion</a>
+                        <Link to="/Login">Inicio de sesion</Link>
                         </div>
                     </div>
                 </nav>
