@@ -9,7 +9,7 @@ export default function Nav() {
             <div className="container-fluid">
                 <nav className="navbar navbar-expand-lg custom_nav-container">
                     <a className="navbar-brand" href="/">
-                        <span>Walking legs</span>
+                        <span><Link to="/Administrador">Walking legs</Link></span>
                     </a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

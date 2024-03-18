@@ -1,22 +1,11 @@
 import React from "react";
 // import 'https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css';
 // import '@fortawesome/fontawesome-free/css/all.css';
-import { Chart } from "chart.js";
-import { useState } from 'react';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faBars, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
 import bootstrapBundleMin from "bootstrap/dist/js/bootstrap.bundle.min";
 
 export default function Administrador() {
-    const [searchQuery, setSearchQuery] = useState('');
-
-    const handleSearch = () => {
-        console.log('Realizar búsqueda:', searchQuery);
-    };
-
-    const cerrarSesion = () => {
-        console.log('Cerrar sesión');
-    };
     return(
         <>
         <title>Dashboard - SB Admin</title>
@@ -37,16 +26,14 @@ export default function Administrador() {
                         placeholder="Search for..."
                         aria-label="Search for..."
                         aria-describedby="btnNavbarSearch"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
                     />
-                    <button className="btn btn-primary" id="btnNavbarSearch" type="button" onClick={handleSearch}>
+                    <button className="btn btn-primary" id="btnNavbarSearch" type="button">
                         {/* <FontAwesomeIcon icon=""/> */}
                     </button>
                 </div>
             </form>
             {/* Cerrar Sesión */}
-            <a className="btn btn-primary" role="button" onClick={cerrarSesion} href="../index.html">Cerrar Sesión</a>
+            <a className="btn btn-primary" role="button" href="../index.html">Cerrar Sesión</a>
         </nav>
 
         </body>

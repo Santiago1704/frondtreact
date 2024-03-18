@@ -11,6 +11,7 @@ import Form from './components/Form/Form';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import Administrador from './components/Administrador/Administrador';
 function App() {
   return (
     <Router>
