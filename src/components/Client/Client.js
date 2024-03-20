@@ -11,7 +11,7 @@ export default function Client() {
             <div className="container">
             <a name="clientes">
                 <h2 className="custom_heading text-center">
-                    Lo que dicen Nuestros
+                    Lo que dicen Nuestros <br></br>
                     <span>
                         Clientes
                     </span>
