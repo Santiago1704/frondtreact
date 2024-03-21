@@ -23,7 +23,7 @@ export default function NavUser() {
                                      <a className="nav-link" href="/Usuario">Inicio <span className="sr-only"></span></a> 
                                 </li>
                                 <li className="nav-item">
-                                <Link className="nav-link" to="/Usuario">Servicios</Link>
+                                <Link className="nav-link" to="/Paseos">Paseos</Link>
                                 </li>
                                 <li className="nav-item">
                                 <Link className="nav-link" to="/Usuario">Galeria de imagenes</Link>
@@ -31,13 +31,12 @@ export default function NavUser() {
                                 <li className="nav-item">
                                 <Link className="nav-link" to="/Usuario">Clientes</Link>
                                 </li>
-                                <li className="nav-item">
-                                <Link className="nav-link" to="/Usuario">Contactanos</Link>
-                                </li>
                             </ul>
-                            <form className="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
-                                <button className="btn my-2 my-sm-0 nav_search-btn" type="submit"></button>
-                            </form>
+                        </div>
+                        <div className="mb-1">
+                                <button type="button" className="btn  fs-6 w-100 ">
+                                <Link to="/Login">Cerrar Sesion</Link>
+                                </button>
                         </div>
                     </div>
                 </nav>

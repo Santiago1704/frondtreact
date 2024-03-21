@@ -14,6 +14,7 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Usuario from "./Pages/Usuario/Usuario";
 import Admin from "./Pages/Admin/Admin";
+import Paseos from "./components/Paseos/Paseos";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function AppContent() {
           <Route path='/' element={<Carruzel />} />
           <Route path='/Usuario' element={<Usuario />} />
           <Route path='/Administrador' element={<Admin/>}/>
+          <Route path="/Paseos" element={<Paseos/>}/>
         </Routes>
         {!hideNavFooterInfo && <Info />}
         {!hideNavFooterInfo && <Footer />}
