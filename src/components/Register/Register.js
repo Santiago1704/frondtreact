@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import './Register.css';
 import axios from "axios";
 
-export default function Register() {
+export default function Register({ history }) {
     const [name, setName] = useState('');
     const [apellido, setApellido] = useState('');
     const [documento, setDocumento] = useState('');
@@ -40,6 +40,7 @@ export default function Register() {
             if (response.data.message === "Cliente registrado exitosamente") {
                 console.log("Cliente registrado exitosamente");
                 alert("Cliente registrado exitosamente. Ahora puedes iniciar sesión.");
+                history.push('/Login');
                 // Redirigir a la página de inicio de sesión u otra página de tu elección
                 // Aquí deberías utilizar react-router-dom para redirigir a otra ruta
                 // window.location.href = '../html/login.html';
@@ -69,7 +70,7 @@ export default function Register() {
                             <div className="input-group">
                                 <input className="input--style-1" type="text" placeholder="APELLIDO" name="apellido" id="apellido" value={apellido} onChange={(e) => setApellido(e.target.value)} />
                             </div>
-                            <div className="row row-space">
+                            {/* <div className="row row-space">
                                 <div className="col-2">
                                     <div className="input-group">
                                         <input className="input--style-1 js-datepicker" type="text" placeholder="No DE DOCUMENTO" name="documento" id="documento" value={documento} onChange={(e) => setDocumento(e.target.value)} />
@@ -90,7 +91,11 @@ export default function Register() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
+                            <div className="input-group">
+                                        <input className="input--style-1 js-datepicker" type="text" placeholder="No DE DOCUMENTO" name="documento" id="documento" value={documento} onChange={(e) => setDocumento(e.target.value)} />
+                                        <i className="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                    </div>
                             <div className="input-group">
                                 <input className="input--style-1" type="text" placeholder="CORREO" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                             </div>
@@ -104,10 +109,10 @@ export default function Register() {
                                 <input className="input--style-1" type="password" placeholder="CONTRASEÑA" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                             </div>
                             <div className="p-t-50">
-                                <button type="submit" id="submit" className="btn btn--radius btn--green" onClick={handleSubmit}>
+                                <button type="submit" id="submit" className="btn btn--radius btn-success" onClick={handleSubmit}>
                                     Registrar
                                 </button>
-                                <button type="reset" className="btn btn--radius btn--green">
+                                <button type="reset" className="btn btn--radius btn-success">
                                     Borrar
                                 </button>
                             </div>

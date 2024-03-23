@@ -7,6 +7,7 @@ export default function Paseos() {
   const [direccion, setDireccion] = useState('');
   const [duracion, setDuracion] = useState('');
   const [fecha, setFecha] = useState('');
+  const [idCliente, setIdCliente] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -25,13 +26,14 @@ export default function Paseos() {
   const solicitarPaseo = async () => {
     const usuario = JSON.parse(localStorage.getItem('usuario'));
     const idCliente = usuario.idusuario;
+    setIdCliente(idCliente);
 
     const requestData = {
       tipo_mascota: tipoMascota,
       direccion: direccion,
       duracion: duracion,
       fecha: fecha,
-      idCliente: idCliente
+      idusuario: idCliente
     };
 
     const config = {
@@ -50,11 +52,11 @@ export default function Paseos() {
   };
 
   return (
-    <div className="container">
+    <div className="container-paseo">
       <form id="contactus" onSubmit={handleSubmit}>
         <h3>Solicitar Paseo</h3>
         <fieldset>
-          <label htmlFor="tipo_mascota" className="form-label"><span className="text-primary">Tipo de Mascota  </span></label>
+          <label htmlFor="tipo_mascota" className="form-label"><span className="text-info">Tipo de Mascota  </span></label>
           <select className="form-select" id="tipo_mascota" name="tipo_mascota" value={tipoMascota} onChange={(e) => setTipoMascota(e.target.value)}>
             <option value="perro">Perro</option>
             <option value="gato">Gato</option>
@@ -101,6 +103,7 @@ export default function Paseos() {
             onChange={(e) => setFecha(e.target.value)}
           />
         </fieldset>
+        <input type="hidden" id="idusuario" name="idusuario" value={idCliente} />
         <fieldset>
           <textarea
             placeholder="Escribe tu mensaje aquí"

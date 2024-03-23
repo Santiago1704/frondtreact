@@ -58,7 +58,7 @@ export default function Login() {
         switch (tipoUsuario) {
             case "administrador":
                 console.log("Redirigir a la página del admin");
-                navigate('/administrador'); // Utiliza navigate en lugar de history.push
+                navigate('/Administrador'); // Utiliza navigate en lugar de history.push
                 break;
             case "usuario":
                 console.log("Redirigir a la página del usuario");

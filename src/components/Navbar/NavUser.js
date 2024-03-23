@@ -1,9 +1,20 @@
-import React from "react";
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './Nav.css';
 import { Link } from 'react-router-dom';
 export default function NavUser() {
+    const handleLogout = () => {
+        const isConfirmed = window.confirm("¿Estás seguro que deseas cerrar sesión?");
+        if (isConfirmed) {
+          // Aquí puedes agregar la lógica para cerrar la sesión
+          // Por ejemplo, puedes enviar una solicitud al servidor para cerrar la sesión
+          // y limpiar los datos de sesión del lado del cliente
+          console.log("Cerrando sesión...");
+        } else {
+          console.log("Operación de cierre de sesión cancelada.");
+        }
+      };
     return (
         <div>
             <div className="container-fluid">
@@ -20,7 +31,7 @@ export default function NavUser() {
                         <div className="d-flex mx-auto flex-column flex-lg-row align-items-center">
                             <ul className="navbar-nav">
                                 <li className="nav-item active">
-                                     <a className="nav-link" href="/Usuario">Inicio <span className="sr-only"></span></a> 
+                                <Link className="nav-link" to="/Usuario">Inicio</Link>
                                 </li>
                                 <li className="nav-item">
                                 <Link className="nav-link" to="/Paseos">Paseos</Link>
@@ -35,7 +46,7 @@ export default function NavUser() {
                         </div>
                         <div className="mb-1">
                                 <button type="button" className="btn  fs-6 w-100 ">
-                                <Link to="/Login">Cerrar Sesion</Link>
+                                <button onClick={handleLogout}><Link to="/Login">Cerrar Sesion</Link></button>
                                 </button>
                         </div>
                     </div>
