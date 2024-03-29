@@ -15,7 +15,7 @@ export default function Info() {
                             <img src="" alt="" />
                         </div>
                         <div className="detail-box">
-                            <p>Ubicacion</p>
+                            <p className="text-white">Ubicacion</p>
                         </div>
                     </div>
                 </a>
@@ -25,7 +25,7 @@ export default function Info() {
                             <img src="" alt="" />
                         </div>
                         <div className="detail-box">
-                            <p>+57 3004567897</p>
+                            <p className="text-white">+57 3004567897</p>
                         </div>
                     </div>
                 </a>
@@ -35,7 +35,7 @@ export default function Info() {
                             <img src="" alt="" />
                         </div>
                         <div className="detail-box">
-                            <p>walkinglegs@gmail.com</p>
+                            <p className="text-white">walkinglegs@gmail.com</p>
                         </div>
                     </div>
                 </a>

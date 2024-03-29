@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Administrador.css";
+import Chart from "chart.js/auto";
 export default function Sidenav() {
   const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
     obtenerUsuarios();
+    crearGraficas();
   }, []);
 
   function obtenerUsuarios() {
@@ -22,6 +24,60 @@ export default function Sidenav() {
           "Hubo un problema al obtener los informes solicitados. Por favor, inténtalo de nuevo más tarde."
         );
       });
+  }
+  function crearGraficas() {
+    // Destruir gráfico existente si existe
+    Chart.getChart("grafica")?.destroy();
+    Chart.getChart("grafica1")?.destroy();
+  
+    // Crear gráfico de barras
+    const labels = ["Enero", "Febrero", "Marzo", "Abril"];
+    const graph = document.querySelector("#grafica");
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: "Paseos por mes",
+          data: [1, 2, 3, 4],
+          backgroundColor: "rgba(9, 129, 176, 0.2)",
+        },
+      ],
+    };
+    const config = {
+      type: "bar",
+      data: data,
+    };
+    new Chart(graph, config);
+  
+    // Crear gráfico de líneas
+    const etiquetas = ["Enero", "Febrero", "Marzo", "Abril"];
+    const grafica1 = document.querySelector("#grafica1");
+    const datosVentas2020 = {
+      label: "Ventas por mes",
+      data: [5000, 1500, 8000, 5102],
+      backgroundColor: "rgba(54, 162, 235, 0.2)",
+      borderColor: "rgba(54, 162, 235, 1)",
+      borderWidth: 1,
+    };
+    const config1 = {
+      type: "line",
+      data: {
+        labels: etiquetas,
+        datasets: [datosVentas2020],
+      },
+      options: {
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+              },
+            },
+          ],
+        },
+      },
+    };
+    new Chart(grafica1, config1);
   }
   return (
     <div id="layoutSidenav">
