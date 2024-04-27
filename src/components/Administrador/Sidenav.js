@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Administrador.css";
 import Chart from "chart.js/auto";
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 export default function Sidenav() {
   const [usuarios, setUsuarios] = useState([]);
 
@@ -29,7 +31,7 @@ export default function Sidenav() {
     // Destruir gráfico existente si existe
     Chart.getChart("grafica")?.destroy();
     Chart.getChart("grafica1")?.destroy();
-  
+
     // Crear gráfico de barras
     const labels = ["Enero", "Febrero", "Marzo", "Abril"];
     const graph = document.querySelector("#grafica");
@@ -48,7 +50,7 @@ export default function Sidenav() {
       data: data,
     };
     new Chart(graph, config);
-  
+
     // Crear gráfico de líneas
     const etiquetas = ["Enero", "Febrero", "Marzo", "Abril"];
     const grafica1 = document.querySelector("#grafica1");
@@ -79,6 +81,12 @@ export default function Sidenav() {
     };
     new Chart(grafica1, config1);
   }
+
+  const exportarAPDF = () => {
+    const doc = new jsPDF();
+    doc.autoTable({ html: '#tablacontacs' });
+    doc.save('usuarios.pdf');
+  };
   return (
     <div id="layoutSidenav">
       <div id="layoutSidenav_nav">
@@ -145,7 +153,7 @@ export default function Sidenav() {
                     Area de analisis de los datos
                   </div>
                   <div className="card-body">
-                    <canvas id="grafica1" width="100%" height="40"></canvas>
+                    <iframe title="tablero" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiYjhiZjc5ODgtMGMyZC00ZTI2LTgyZDctMDgwYWE2YmNlYmY2IiwidCI6IjFlOWFhYmU4LTY3ZjgtNGYxYy1hMzI5LWE3NTRlOTI0OTlhZSIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
                   </div>
                 </div>
               </div>
@@ -193,6 +201,7 @@ export default function Sidenav() {
                       </tr>
                     ))}
                   </tbody>
+                  <button className="btn btn-danger mt-4" style={{ width: '140px' }} onClick={exportarAPDF}>Exportar a PDF</button>
                 </table>
               </div>
             </div>

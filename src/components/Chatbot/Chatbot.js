@@ -6,23 +6,39 @@ function Chatbot() {
   const [userInput, setUserInput] = useState('');
   const [chatbotMessages, setChatbotMessages] = useState([]);
 
-  const sendMessageToChatbot = async () => {
-    // Agregar el mensaje del usuario al estado de mensajes del chatbot
-    setChatbotMessages(prevMessages => [...prevMessages, { sender: 'user', message: userInput }]);
-    setUserInput('');
-
-    console.log("Mensaje enviado al servidor:", userInput);
-
+  const sendMessageToRasa = async (message) => {
     try {
-      // Enviar el mensaje al servidor Flask
-      const response = await axios.post('http://localhost:8000/chatbot', { message: userInput });
-      // Agregar la respuesta del chatbot al estado de mensajes del chatbot
-      setChatbotMessages(prevMessages => [...prevMessages, { sender: 'chatbot', message: response.data.message }]);
+      const response = await fetch('http://localhost:5005/webhooks/rest/webhook', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          sender: "user",
+          message: message
+        })
+      });
+      const messages = await response.json();
+      messages.forEach(msg => {
+        displayMessage(msg.text, 'bot');
+      });
     } catch (error) {
-      console.error('Error al enviar mensaje al chatbot:', error);
-      // Mostrar mensaje de error al usuario
-      alert('Ocurrió un error al enviar el mensaje al chatbot. Por favor, inténtalo nuevamente.');
+      console.error('Error connecting to Rasa:', error);
+      displayMessage('Error communicating with the bot.', 'bot');
     }
+  };
+
+  const sendMessageToChatbot = () => {
+    const message = userInput.trim();
+    if (message) {
+      displayMessage(message, 'user');
+      setUserInput('');
+      sendMessageToRasa(message);
+    }
+  };
+
+  const displayMessage = (message, sender) => {
+    setChatbotMessages(prevMessages => [...prevMessages, { sender: sender, message: message }]);
   };
 
   return (
@@ -33,13 +49,13 @@ function Chatbot() {
         ))}
       </div>
       <div className='input-container'>
-      <input 
-        type="text" 
-        value={userInput} 
-        onChange={e => setUserInput(e.target.value)} 
-        placeholder="Escribe aquí..."
-      />
-      <button onClick={sendMessageToChatbot}>Enviar</button>
+        <input
+          type="text"
+          value={userInput}
+          onChange={e => setUserInput(e.target.value)}
+          placeholder="Escribe aquí..."
+        />
+        <button onClick={sendMessageToChatbot}>Enviar</button>
       </div>
     </div>
   );

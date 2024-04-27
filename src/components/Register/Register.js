@@ -37,13 +37,19 @@ export default function Register({ history }) {
         try {
             const response = await axios.post('http://127.0.0.1:8000/register_cliente', requestData);
 
-            if (response.data.message === "Cliente registrado exitosamente") {
+            if (response.data.message === "Cliente registrado exitosamente.") {
                 console.log("Cliente registrado exitosamente");
                 alert("Cliente registrado exitosamente. Ahora puedes iniciar sesión.");
+                // Limpiar el formulario
+                setName('');
+                setApellido('');
+                setDocumento('');
+                setEmail('');
+                setPassword('');
+                setTelefono('');
+                setDireccion('');
+                // Redirigir a la página de inicio de sesión
                 history.push('/Login');
-                // Redirigir a la página de inicio de sesión u otra página de tu elección
-                // Aquí deberías utilizar react-router-dom para redirigir a otra ruta
-                // window.location.href = '../html/login.html';
             } else {
                 alert(response.data.message);
             }
@@ -54,6 +60,16 @@ export default function Register({ history }) {
                 alert("Hubo un problema durante el registro. Por favor, inténtalo de nuevo.");
             }
         }
+    };
+
+    const handleReset = () => {
+        setName('');
+        setApellido('');
+        setDocumento('');
+        setEmail('');
+        setPassword('');
+        setTelefono('');
+        setDireccion('');
     };
 
     return (
@@ -70,32 +86,10 @@ export default function Register({ history }) {
                             <div className="input-group">
                                 <input className="input--style-1" type="text" placeholder="APELLIDO" name="apellido" id="apellido" value={apellido} onChange={(e) => setApellido(e.target.value)} />
                             </div>
-                            {/* <div className="row row-space">
-                                <div className="col-2">
-                                    <div className="input-group">
-                                        <input className="input--style-1 js-datepicker" type="text" placeholder="No DE DOCUMENTO" name="documento" id="documento" value={documento} onChange={(e) => setDocumento(e.target.value)} />
-                                        <i className="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                    </div>
-                                </div>
-                                <div className="col-2">
-                                    <div className="input-group">
-                                        <div className="rs-select2 js-select-simple select--no-search">
-                                            <select name="tipo">
-                                                <option disabled="disabled" selected="selected">TIPO DE DOCUMENTO</option>
-                                                <option>Cedula</option>
-                                                <option>Tarjeta de Identidad</option>
-                                                <option>Cedula de extranjeria</option>
-                                                <option>Registro Civil</option>
-                                            </select>
-                                            <div className="select-dropdown"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> */}
                             <div className="input-group">
-                                        <input className="input--style-1 js-datepicker" type="text" placeholder="No DE DOCUMENTO" name="documento" id="documento" value={documento} onChange={(e) => setDocumento(e.target.value)} />
-                                        <i className="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                    </div>
+                                <input className="input--style-1 js-datepicker" type="text" placeholder="No DE DOCUMENTO" name="documento" id="documento" value={documento} onChange={(e) => setDocumento(e.target.value)} />
+                                <i className="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                            </div>
                             <div className="input-group">
                                 <input className="input--style-1" type="text" placeholder="CORREO" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                             </div>
@@ -112,7 +106,7 @@ export default function Register({ history }) {
                                 <button type="submit" id="submit" className="btn btn--radius btn-success" onClick={handleSubmit}>
                                     Registrar
                                 </button>
-                                <button type="reset" className="btn btn--radius btn-success">
+                                <button type="button" className="btn btn--radius btn-success" onClick={handleReset}>
                                     Borrar
                                 </button>
                             </div>
