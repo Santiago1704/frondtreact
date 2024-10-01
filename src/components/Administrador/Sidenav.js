@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Administrador.css";
-import Chart from "chart.js/auto";
+import { Chart, registerables } from 'chart.js';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 export default function Sidenav() {
+  Chart.register(...registerables);
   const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
